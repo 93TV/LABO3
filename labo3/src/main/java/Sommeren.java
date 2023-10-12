@@ -11,8 +11,10 @@ public class Sommeren {
     static int som = 0;
     public static boolean vindSomSet(int controleGetal, int[] getallen, List<Integer> subset, int index) {
         if (controleGetal == 0) {
+            System.out.println("Oplossing:" + subset);
             return true;
         } else if (controleGetal < 0 || index == getallen.length) {
+            System.out.println("kéér e ké wére");
             return false;
         } else {
             List<Integer> newSubset = new ArrayList<>(subset);
@@ -20,11 +22,6 @@ public class Sommeren {
             System.out.println(newSubset);
             return vindSomSet(controleGetal - getallen[index], getallen, newSubset, index + 1) ||
             vindSomSet(controleGetal, getallen, subset, index + 1);
-
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }
