@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,8 +10,22 @@ import static org.junit.jupiter.api.Assertions.*;
  * @version 12/10/2023
  */
 public class test {
-    @Test
-    public void niemand(){
+    public personenFeestje feestje ;
 
+    public String[] personen = {"Marie", "anne", "jan"};
+    @BeforeEach
+    public void init(){
+        feestje = new personenFeestje();
     }
+
+    @Test
+    public void niemandKomt(){
+
+        assertEquals(0,personen.length);
+    }
+    @Test
+    public void marieKomt(){
+        assertEquals("Marie",personen[0]);
+    }
+
 }
