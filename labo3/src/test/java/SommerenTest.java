@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author viaen
  * @version 12/10/2023
  */
-class MTest {
+class SommerenTest {
 
     @ParameterizedTest
     @CsvSource({
@@ -32,7 +32,7 @@ class MTest {
             getallen[i] = Integer.parseInt(str);
             i++;
         }
-        boolean result = M.m(controleGetal, getallen,  new ArrayList<>(), 0);
+        boolean result = Sommeren.vindSomSet(controleGetal, getallen,  new ArrayList<>(), 0);
         assertEquals(result, expected);
     }
 
