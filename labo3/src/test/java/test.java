@@ -15,11 +15,13 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class test {
     public PersonenFeestje feestje;
+    public PersonenFeestjeIteratie feestjeIteratie;
     public ArrayList<String> personen = new ArrayList<>();
 
     @BeforeEach
     public void init() {
         feestje = new PersonenFeestje();
+        feestjeIteratie = new PersonenFeestjeIteratie();
         personen.add("Marie");
         personen.add("anne");
         personen.add("jan");
@@ -29,6 +31,18 @@ public class test {
     public void aantalKomt() {
         ArrayList<ArrayList<String>> aanwezigenOpFeest = new ArrayList<>();
         feestje.aanwezigen(personen.size(), personen, aanwezigenOpFeest);
+        assertAll(
+                () -> assertEquals(0, aanwezigenOpFeest.get(0).size()),
+                () -> assertEquals(1, aanwezigenOpFeest.get(1).size()),
+                () -> assertEquals(2, aanwezigenOpFeest.get(3).size()),
+                () -> assertEquals(3, aanwezigenOpFeest.get(7).size())
+
+        );
+    }
+    @Test
+    public void aantalKomtIteratie() {
+        ArrayList<ArrayList<String>> aanwezigenOpFeest = new ArrayList<>();
+        feestjeIteratie.aanwezigen(personen.size(), personen, aanwezigenOpFeest);
         assertAll(
                 () -> assertEquals(0, aanwezigenOpFeest.get(0).size()),
                 () -> assertEquals(1, aanwezigenOpFeest.get(1).size()),
